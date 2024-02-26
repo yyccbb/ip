@@ -11,7 +11,7 @@ public class TaskAction implements Action {
     private Task task;
 
     /**
-     * Constructor that specifies the Task to be added.
+     * Constructor the specifies the Task to be added.
      */
     public TaskAction(Task task) {
         this.task = task;
@@ -22,6 +22,7 @@ public class TaskAction implements Action {
      */
     @Override
     public String execute() {
+        assert task != null : "task should not be null";
         DataHandler.addTask(task);
         int noOfTasks = DataHandler.size();
         return PrintHandler.printWithDivider("Ok.. I've added this task to your list:\n"
